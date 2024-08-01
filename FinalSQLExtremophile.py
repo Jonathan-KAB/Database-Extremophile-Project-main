@@ -8,24 +8,12 @@ from urllib.parse import urlparse
 
 # Database connection function
 def connect_to_db():
-    db_url = os.environ.get('MYSQL_URL')
-    if db_url:
-        result = urlparse(db_url)
-        username = result.username
-        password = result.password
-        database = result.path[1:]
-        hostname = result.hostname
-        port = result.port
-    else:
-        st.error("MYSQL_URL environment variable not set")
-        return None
-    
     return mysql.connector.connect(
-        host=hostname,
-        port=port,
-        user=username,
-        password=password,
-        database=database
+        host="localhost",
+        port=3306,
+        user="root",
+        password="password",
+        database="ProjectDB"
     )
 
 # Function to execute query and return results as a dataframe
