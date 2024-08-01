@@ -1,8 +1,10 @@
+import os
 import streamlit as st
 import mysql.connector
 import pandas as pd
 import plotly.express as px
 import numpy as np
+from urllib.parse import urlparse
 
 # Database connection function
 def connect_to_db():
